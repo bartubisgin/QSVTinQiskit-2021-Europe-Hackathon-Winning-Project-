@@ -9,8 +9,21 @@ One of the most important challenges in the broad field of Quantum Information i
 In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the different side of a many-sided dice, with the corresponding encoding and polynomial transformation. 
 
 # Algorithms That Are Confirmed to be QSVT-expressable
+
 Hamiltonian Simulation and Quantum Walks
+
 Grover's Search
+
 Shor's Algorithm
+
 HHL (for solving linear systems of equations)
 
+Several QML algorithms
+
+# Short-term Goals
+
+Implement the Hamiltonian singular value transformation in Qiskit and prepare a user-friendly library/repository Qiskit users. This requires implementing Block encoding and generalized QAOA (Quantum Alternating Operator Ansatz). Implementing these harmoniously will be the main short-term challenge and goal of the team, first and foremost.
+
+# Long-term Goals
+
+Keep implementing different algorithms in the repository to create a rich QSVT library for Qiskit, demonstrating the unification of different quantum algorithms and potentially creating more NISQ-era friendly forms.
