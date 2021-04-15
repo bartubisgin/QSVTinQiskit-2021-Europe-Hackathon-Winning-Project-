@@ -1,5 +1,5 @@
 # QSVT in Qiskit
-Quantum algorithms re-imagined as the iteration of a 'simple' circuit through Quantum Singular Value Transformation
+Quantum algorithms re-imagined as the iteration of a 'simple' circuit through Quantum Singular Value Transformation and implemented in Qiskit.
 
 # Demonstrating the Grand Unification of Quantum Algorithms and Making Them More NISQ-friendly
 Quantum Singular Value Transformation is a promising new framework that allows one to apply a polynomial transformation to the singular values of a block-encoded unitary transformation, first coherently introduced by Gilyen et. al in a 2018 paper. Later, about 4 months ago, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and how QSVT serves as a unification schemes for many quantum algorithms as something more fundamental. Even more recently, last week, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
