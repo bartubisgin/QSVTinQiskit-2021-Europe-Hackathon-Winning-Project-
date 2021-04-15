@@ -6,4 +6,11 @@ Quantum Singular Value Transformation is a promising new framework that allows o
 
 One of the most important challenges in the broad field of Quantum Information is finding useful, NISQ-era applications that offer some valuable speed-up to their classical counterparts, which can be employed in academic research and industry today. The QSVT effort is an emerging and potentially-impactful development towards these NISQ-applicability as it allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that,as parameters, require merely the block-encoded Unitary and the relevant polynomial transformation of interest.
 
-In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the different side of a many-sided dice, with the corresponding encoding and polynomial transformation. It is valuable to  
+In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the different side of a many-sided dice, with the corresponding encoding and polynomial transformation. 
+
+# Algorithms That Are Confirmed to be QSVT-expressable
+Hamiltonian Simulation and Quantum Walks
+Grover's Search
+Shor's Algorithm
+HHL (for solving linear systems of equations)
+
