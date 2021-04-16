@@ -20,7 +20,7 @@ Say you have an operator/matrix-representation for the Algorithm of interest, eg
 
 4-Build another simple circuit with the same elements, just a little tweaking. Take hermitian conjugate of the Unitary (ie. due to its Unitary nature, its inverse)
 
-5-Add these circuits together and perform the overall circuit many times
+5-Add these circuits end to end as many times needed with different values for the found phases (so add the circuit block to the end with something similar of a for statement with different phase values)
 
 6-Obtain the unitary embedding of the polynomial transformation you want
 
