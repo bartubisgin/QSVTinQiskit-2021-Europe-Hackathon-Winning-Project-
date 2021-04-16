@@ -10,7 +10,7 @@ In this project, the aim is to apply QSVT hands-on in Qiskit and develop a usefu
 
 # General Overview of How QSVT would work
 
-Say you have an operator/matrix-representation for the Algorithms, eg. Hamiltonian for Quantum Simulation; Grover Oracle for Search
+Say you have an operator/matrix-representation for the Algorithm of interest, eg. Hamiltonian for Quantum Simulation; Grover Oracle for Search
 
 1-Block encode this operator of interest in a way that it results in a well-behaving Unitary
 
