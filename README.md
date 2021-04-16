@@ -13,11 +13,17 @@ In this project, the aim is to apply QSVT hands-on in Qiskit and develop a usefu
 Say you have an operator/matrix-representation for the Algorithms, eg. Hamiltonian for Quantum Simulation; Grover Oracle for Search
 
 1-Block encode this operator of interest in a way that it results in a well-behaving Unitary
+
 2-Figure out what Quantum Signal Processing phases would result in the polynomial transformation you want to achieve on your encoding (Remez Exchange algorithm helps to find these phases in discrete time signal processing)
-3-Build a simple circuit that uses a fixed number of ancilla qubits, and just has the Unitary, a rotation around the Z-axis with the found phases, and an ancilla Controlled-projector as elements.
-4-Build another simple circuit with the same elements, just a little tweaking. Take hermitian conjugate of the Unitary (ie. due to its Unitary nature, its inverse). 
+
+3-Build a simple circuit that uses a fixed number of ancilla qubits, and just has the Unitary, a rotation around the Z-axis with the found phases, and an ancilla Controlled-projector as elements
+
+4-Build another simple circuit with the same elements, just a little tweaking. Take hermitian conjugate of the Unitary (ie. due to its Unitary nature, its inverse)
+
 5-Add these circuits together and perform the overall circuit many times
+
 6-Obtain the unitary embedding of the polynomial transformation you want
+
 7-Extract results!
 
 # Algorithms That Are Confirmed to be QSVT-expressable
