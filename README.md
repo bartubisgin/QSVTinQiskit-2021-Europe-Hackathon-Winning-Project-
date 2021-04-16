@@ -28,6 +28,8 @@ Say you have an operator/matrix-representation for the Algorithm of interest, eg
 
 For example, given a Hamiltonian, and given that you can block-encode it properly in the first step; you can EXACTLY extract cos(Ht)-isin(Ht) to build your time-evolution operator exp(-iHt) EXACTLY, without having to deal with any approximations! THIS IS AMAZING!
 
+Notice how this framework is independent of the type of algorithm we want to use! This is remarkable for NISQ-era devices because now we dont need to construct different types of sub-routines for all kinds of different algorithms. We can simply create this circuit, and given that we can properly block-encode our desired operator and that we can obtain the phases by some routine, we can implement different algorithms from across the board with the same circuit architecture!
+
 # Algorithms That Are Confirmed to be QSVT-expressable
 
 Hamiltonian Simulation and Quantum Walks
