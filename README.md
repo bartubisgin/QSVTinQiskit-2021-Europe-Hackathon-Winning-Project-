@@ -26,6 +26,8 @@ Say you have an operator/matrix-representation for the Algorithm of interest, eg
 
 7-Extract results!
 
+For example, given a Hamiltonian, and given that you can block-encode it properly in the first step; you can EXACTLY extract cos(Ht)-isin(Ht) to build your time-evolution operator exp(-iHt) EXACTLY, without having to deal with any approximations! THIS IS AMAZING!
+
 # Algorithms That Are Confirmed to be QSVT-expressable
 
 Hamiltonian Simulation and Quantum Walks
