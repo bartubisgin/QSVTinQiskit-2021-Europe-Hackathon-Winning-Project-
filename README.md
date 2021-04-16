@@ -22,7 +22,7 @@ Several QML algorithms
 
 # Short-term Goals
 
-Implement Grover's Search with QSVT in Qiskit and prepare a user-friendly library/repository Qiskit users. This requires implementing Block encoding and generalized QAOA (Quantum Alternating Operator Ansatz). Implementing these harmoniously will be the main short-term challenge and goal of the team, first and foremost.
+Implement Grover's Search with QSVT in Qiskit and prepare a user-friendly library/repository Qiskit users. This requires implementing Block encoding and a generalized Remez Exchange algorithm. Implementing these harmoniously and getting a working QSVT Grover's Search will be the main short-term challenge and goal of the team, first and foremost.
 
 # Long-term Goals
 
