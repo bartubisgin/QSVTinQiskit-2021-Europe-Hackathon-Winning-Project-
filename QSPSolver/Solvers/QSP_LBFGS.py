@@ -62,9 +62,9 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
     mem_now = 0
     mem_grad = np.zeros((lmem, d))
     mem_obj = np.zeros((lmem, d))
-    mem_dot = np.zeros((lmem,))
+    mem_dot = np.zeros((lmem,1))
     [grad_s, obj_s] = grad(phi, delta, options)
-    obj_value = np.mean(grad_s)
+    obj_value = np.mean(obj_s)
     GRAD = np.conj(np.mean(grad_s))
 
     # Start L-BFGS
@@ -72,7 +72,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         print("L-BFGS solver started")
 
     while(True):
-        iter += 1
+        iter_ += 1
         theta_d = GRAD
         alpha = np.zeros((mem_size, 1))
         for i in range(mem_size):
@@ -80,17 +80,17 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
             alpha[i] = mem_dot[i] @ (mem_obj[subsc, :] @ theta_d)
             theta_d -= alpha[i] @ np.conj(mem_grad[subsc, :])
 
-       theta_d *= 0.5
-       if (options["parity"] == 0):
-           theta_d[0] *= 2
-        
-        for i in range(mem_size):
-            subsc = np.mod(mem_now - (mem_size - i) - 1, lmem)
-            beta = mem_dot(subsc) @ (mem_grad[subsc, :] @ theta_d)
-            theta_d += (alpha[mem_size - i] - beta) @ np.conj(mem_obj[subsc, :])
-        
-        step = 1
-        exp_des = np.conj(GRAD) @ theta_d
+        theta_d *= 0.5
+        if (options["parity"] == 0):
+            theta_d[0] *= 2
+            
+            for i in range(mem_size):
+                subsc = np.mod(mem_now - (mem_size - i) - 1, lmem)
+                beta = mem_dot[subsc] @ (mem_grad[subsc, :] @ theta_d)
+                theta_d += (alpha[mem_size - i] - beta) @ np.conj(mem_obj[subsc, :])
+            
+            step = 1
+            exp_des = np.conj(GRAD) @ theta_d
         
         while(True):
             theta_new = phi - step @ theta_d
@@ -112,9 +112,9 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         mem_obj[mem_now, :] = - step @ theta_d
         mem_dot[mem_now] = 1/(mem_grad[mem_now, :] @ np.conj(mem_obj[mem_now, :]))
         GRAD = GRAD_new
-        if (pri and np.mod(iter, itprint) == 0)
+        if pri and np.mod(iter, itprint) == 0:
             if (iter == 1 or np.mod(iter - itprint, itprint * 10) == 0):
-                print(str_head)
+                print("str_head")
         
         if iter > maxiter:
             print("Max iteration reached")

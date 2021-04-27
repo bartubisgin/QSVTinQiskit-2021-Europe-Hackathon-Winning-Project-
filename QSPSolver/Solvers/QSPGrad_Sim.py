@@ -16,13 +16,13 @@ import numpy as np
 #         obj --- Objective function value
 #
 
-def QSPGrad_syn(phi, delta, options):
+def QSPGrad_sym(phi, delta, options):
     m = len(delta)
     d = len(phi)
     obj = np.zeros((m, 1))
     grad = np.zeros((m, d))
     gate = np.array([[np.exp(1j * np.pi / 4), 0],
-                    [np.exp(-1j * pi / 4), 0]])
+                    [np.exp(-1j * np.pi / 4), 0]])
 
     exp_theta = np.exp(1j * phi)
     targetx = options["target"]
@@ -35,9 +35,9 @@ def QSPGrad_syn(phi, delta, options):
         temp_save_1 = np.zeros((2, 2, d))
         temp_save_2 = np.zeros((2, 2, d))
 
-        temp_save_1[:, :, 1] = np.eye(2)
-        temp_save_2[:, :, 1] = np.array([[exp_theta[d - 1], 0],
-                                        [0, np.conj(exp_theta[d - 1])]]) @ gate
+        temp_save_1[:, :, 0] = np.eye(2)
+        temp_save_2[:, :, 0] = np.array([[exp_theta[d - 1, 0], 0],
+                                        [0, np.conj(exp_theta[d - 1, 0])]]) @ gate
         
         for j in range(1, d):
             temp_save_1[:, :, j] = temp_save_1[:, :, j - 1] * np.array([exp_theta[j], np.conj(exp_theta[j])]) @ Wx

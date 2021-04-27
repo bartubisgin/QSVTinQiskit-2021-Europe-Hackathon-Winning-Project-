@@ -25,7 +25,7 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
     hess = np.zeros((d, d, m))
     sigmaz = np.array([[1, 0], 
                         [0, -1]])
-    temp_sig = 1i * sigmaz
+    temp_sig = 1j * sigmaz
     gate = np.array([[np.exp(1j * pi / 4), 0],
                     [0, np.exp(-1j * pi / 4)]])
     
