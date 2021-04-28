@@ -16,11 +16,11 @@ import numpy as np
 #
 
 def QSPGetUnit_sym(phi, x, parity):
-    Wx = [[x, 1j*np.sqrt(1-x**2)],
-          [1j*np.sqrt(1-x**2), x]]
+    Wx = np.array([[x, 1j*np.sqrt(1-x**2)],
+          [1j*np.sqrt(1-x**2), x]])
 
-    gate = [[np.exp(1j * np.pi/4, 0)],
-            [0, np.exp(-1j * np.pi/4)]]
+    gate = np.array([[np.exp(1j * np.pi/4), 0],
+            [0, np.exp(-1j * np.pi/4)]])
     
     exp_phi = np.exp(1j * phi)
 
@@ -28,18 +28,19 @@ def QSPGetUnit_sym(phi, x, parity):
         result = [[exp_phi[0], 0], 
                   [0, np.conj(exp_phi[0])]]
         for k in range(1, len(exp_phi)):
-            result @= Wx @ [[exp_phi[k], 0],
-                            [0, np.conj(exp_phi[k])]]
-        result @= gate
+            result = result @ Wx @ np.array([[exp_phi[k], 0],
+                            [0, np.conj(exp_phi[k])]])
+        result = result @ gate
         qspmat = result.T @ Wk @ result
     
     else:
         result = np.eye(2)
         for k in range(1, len(exp_phi)):
-            result @= np.multiply(Wx, [[exp_phi[k], 0],
-                            [0, np.conj(exp_phi[k])]])
-        result @= gate
-        qspmat = ret.T @ [[exp_phi[0], 0],
-                          [0, np.conj(exp_phi[1])]] @ result
+            # @= is not yet supported (why?)
+            result = result @ Wx * np.array([[exp_phi[k], 0],
+                                            [0, np.conj(exp_phi[k])]])
+        result = result @ gate
+        qspmat = result.T @ np.array([[exp_phi[0], 0],
+                          [0, np.conj(exp_phi[1])]]) @ result
     return qspmat
         

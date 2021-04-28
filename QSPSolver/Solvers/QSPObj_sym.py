@@ -1,4 +1,5 @@
 import numpy as np
+from .QSPGetUnit_sym import QSPGetUnit_sym
 
 #--------------------------------------------------------------------------
 # Evalute the objective of QSP function, provided that phi is symmetric.
@@ -21,6 +22,6 @@ def QSPObj_sym(phi, delta, options):
 
     for i in range(m):
         qspmat = QSPGetUnit_sym(phi, delta[i], options["parity"])
-        obj[i] = 0.5 * np.real(qspmat[0, 0]) - options["target"][delta[i]] ** 2
+        obj[i] = 0.5 * np.real(qspmat[0, 0]) - options["target"](delta[i]) ** 2
     
     return obj

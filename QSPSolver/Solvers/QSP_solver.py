@@ -50,12 +50,13 @@ def QSP_Solver(coeff, parity, options: dict) -> (object, object):
     tot_len = len(coeff)
     # pi_n = np.array([np.pi / 2 / (2*tot_len) for _ in range(tot_len)])
     delta = np.conj(np.cos(np.arange(1, 2*tot_len, 2) * np.pi/2/(2*tot_len)))
-    options["target"] = lambda x, opts: ChebyCoef2Func(x, coeff, parity, True)
+    options["target"] = lambda x: ChebyCoef2Func(x, coeff, parity, True)
     options["parity"] = parity
     obj = QSPObj_sym
     grad = QSPGrad_sym
 
     start_time = time.time()
+    # (tot_len, 1) or (tot_len, ) ?
     [phi, obj_value, out] = QSP_LBFGS(
         obj, grad, delta, np.zeros((tot_len, 1)), options)
     phi[-1] += np.pi/4

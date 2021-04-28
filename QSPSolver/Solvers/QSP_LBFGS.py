@@ -65,7 +65,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
     mem_dot = np.zeros((lmem,1))
     [grad_s, obj_s] = grad(phi, delta, options)
     obj_value = np.mean(obj_s)
-    GRAD = np.conj(np.mean(grad_s))
+    GRAD = np.conj(np.mean(grad_s, axis=1))
 
     # Start L-BFGS
     if (pri):
@@ -93,7 +93,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
             exp_des = np.conj(GRAD) @ theta_d
         
         while(True):
-            theta_new = phi - step @ theta_d
+            theta_new = phi - step * theta_d
             obj_snew = obj(theta_new, delta, options)
             obj_valuenew = np.mean(obj_snew)
             ad = obj_value - obj_valuenew
