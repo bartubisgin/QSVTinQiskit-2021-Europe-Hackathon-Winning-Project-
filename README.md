@@ -58,12 +58,12 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 
 # References
 
-https://dl.acm.org/doi/pdf/10.1145/3313276.3316366
+- https://dl.acm.org/doi/pdf/10.1145/3313276.3316366
 
-https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s
+- https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s
 
-https://arxiv.org/pdf/1409.3305.pdf
+- https://arxiv.org/pdf/1409.3305.pdf
 
-https://arxiv.org/pdf/2002.11649.pdf
+- https://arxiv.org/pdf/2002.11649.pdf
 
-https://github.com/qsppack
+- https://github.com/qsppack
