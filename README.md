@@ -2,9 +2,11 @@
 Quantum algorithms re-imagined as the iteration of a 'simple' circuit through Quantum Singular Value Transformation and implemented in Qiskit.
 
 # Grand Unification and Efficient Implementation of Non-Unitaries
-Quantum Singular Value Transformation is a promising new framework that allows one to apply an arbitrary polynomial transformation (bound by some constraints) to the singular values of a block-encoded unitary transformation, a method first coherently introduced by Gilyen et. al in a 2018 paper. This work is subsequent to work on Quantum Signal Processing. Later, about 4 months ago, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and how QSVT serves as a unification schemes for many quantum algorithms as something more fundamental. Even more recently, last week, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
+Quantum Singular Value Transformation is a promising new framework that allows one to apply an arbitrary polynomial transformation (bound by some constraints) to the singular values of a block-encoded unitary transformation, a method first coherently introduced by Gilyen et. al in a 2018 paper. This work is subsequent to work on Quantum Signal Processing. Later, about 4 months ago, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and how QSVT serves as a unification schemes for many quantum algorithms as something more fundamental. Even more recently, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
 
-One of the most important challenges in the broad field of Quantum Information is finding useful, NISQ-era applications that offer some valuable speed-up to their classical counterparts, which can be employed in academic research and industry today. The QSVT effort is an emerging and potentially-impactful development towards these NISQ-applicability as it allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
+One of the most important challenges in the broad field of Quantum Information is implementing non-unitary operations and finding useful NISQ-era applications that offer some valuable speed-up or are simply intractable. The QSVT effort is an emerging and potentially-impactful development towards these NISQ-applicability as it allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
+
+QSVT also hints at novel algorithms via. the tune-able parameters, that are the Quantum Signal Processing phases. As each different set of phases corresponds to a different transformation, exploring this space is invaluable.
 
 In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
 
@@ -26,7 +28,7 @@ Say you have an object (operator/scalar value/matrix-representation etc.) of int
 
 7-Add these circuits end to end as many times needed with different values for the found phases (so add the circuit block to the end with something similar of a for statement with different phase values).
 
-8-Obtain the unitary embedding of the transformation you desired.
+8-Obtain the unitary embedding of the arbitrary transformation you desired.
 
 9-Extract results!
 
@@ -36,20 +38,32 @@ Notice how this framework is independent of the type of algorithm we want to use
 
 # Algorithms That Are Confirmed to be QSVT-expressable
 
-Amplitude Amplification
+Quantum Simulation
 
 Hamiltonian Simulation and Quantum Walks
 
 Something similar to 'Shor's Algorithm'
 
-HHL (for solving linear systems of equations)
+Matrix Inversion / HHL (for solving linear systems of equations)
 
-Several QML algorithms
+Several QML applications
 
 # Short-term Goals
 
-Implement FPAA with QSVT in Qiskit and prepare a user-friendly library/repository Qiskit users.
+Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA uses the whole Bloch sphere for answers instead of the mere 2D plane by Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
 
 # Long-term Goals
 
-Keep implementing different algorithms in the repository to create a rich QSVT library for Qiskit, demonstrating the unification of different quantum algorithms and potentially creating more NISQ-era friendly forms.
+We want to keep implementing different algorithms in the QSVT framework and add them to this initial module to create a rich QSVT library for Qiskit, making QSVT more accesible to the community, bridging the gap between cutting-edge research and developers. We hope to contribute to research on QSVT and the development of novel algorithms through this work.
+
+#References
+
+https://dl.acm.org/doi/pdf/10.1145/3313276.3316366
+
+https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s
+
+https://arxiv.org/pdf/1409.3305.pdf
+
+https://arxiv.org/pdf/2002.11649.pdf
+
+https://github.com/qsppack
