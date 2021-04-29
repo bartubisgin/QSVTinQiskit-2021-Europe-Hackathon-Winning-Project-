@@ -62,10 +62,10 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
     mem_now = 0
     mem_grad = np.zeros((lmem, d))
     mem_obj = np.zeros((lmem, d))
-    mem_dot = np.zeros((lmem,1))
+    mem_dot = np.zeros((lmem, ))
     [grad_s, obj_s] = grad(phi, delta, options)
     obj_value = np.mean(obj_s)
-    GRAD = np.conj(np.mean(grad_s, axis=1))
+    GRAD = np.mean(grad_s, axis=0)
 
     # Start L-BFGS
     if (pri):
@@ -77,8 +77,8 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         alpha = np.zeros((mem_size, 1))
         for i in range(mem_size):
             subsc = np.mod(mem_now - i, lmem)
-            alpha[i] = mem_dot[i] @ (mem_obj[subsc, :] @ theta_d)
-            theta_d -= alpha[i] @ np.conj(mem_grad[subsc, :])
+            alpha[i] = mem_dot[i] * (mem_obj[subsc, :] @ theta_d)
+            theta_d -= alpha[i] * np.conj(mem_grad[subsc, :])
 
         theta_d *= 0.5
         if (options["parity"] == 0):
@@ -86,8 +86,8 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
             
             for i in range(mem_size):
                 subsc = np.mod(mem_now - (mem_size - i) - 1, lmem)
-                beta = mem_dot[subsc] @ (mem_grad[subsc, :] @ theta_d)
-                theta_d += (alpha[mem_size - i] - beta) @ np.conj(mem_obj[subsc, :])
+                beta = mem_dot[subsc] * (mem_grad[subsc, :] @ theta_d)
+                theta_d += (alpha[mem_size - i - 1] - beta) * np.conj(mem_obj[subsc, :])
             
             step = 1
             exp_des = np.conj(GRAD) @ theta_d
@@ -105,18 +105,18 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         obj_value = obj_valuenew
         obj_max = np.max(obj_snew)
         [grad_s, _] = grad(phi, delta, options)
-        GRAD_new = np.conj(np.mean(grad_s))
-        mem_size = np.min(lmem, mem_size + 1)
+        GRAD_new = np.mean(grad_s, axis=0)
+        mem_size = np.min([lmem, mem_size + 1])
         mem_now = np.mod(mem_now, lmem) + 1
         mem_grad[mem_now, :] = GRAD_new - GRAD
-        mem_obj[mem_now, :] = - step @ theta_d
+        mem_obj[mem_now, :] = - step * theta_d
         mem_dot[mem_now] = 1/(mem_grad[mem_now, :] @ np.conj(mem_obj[mem_now, :]))
         GRAD = GRAD_new
-        if pri and np.mod(iter, itprint) == 0:
-            if (iter == 1 or np.mod(iter - itprint, itprint * 10) == 0):
+        if pri and np.mod(iter_, itprint) == 0:
+            if (iter_ == 1 or np.mod(iter_ - itprint, itprint * 10) == 0):
                 print("str_head")
         
-        if iter > maxiter:
+        if iter_ > maxiter:
             print("Max iteration reached")
             break
 
@@ -124,7 +124,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
             print("Stop criteria satisfied")
             break
     
-    out["iter"] = iter
+    out["iter"] = iter_
 
     return phi, obj_value, out
 

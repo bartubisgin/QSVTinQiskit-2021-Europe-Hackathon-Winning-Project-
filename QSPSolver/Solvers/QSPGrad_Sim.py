@@ -22,7 +22,7 @@ def QSPGrad_sym(phi, delta, options):
     obj = np.zeros((m, 1))
     grad = np.zeros((m, d))
     gate = np.array([[np.exp(1j * np.pi / 4), 0],
-                    [np.exp(-1j * np.pi / 4), 0]])
+                    [0, np.exp(-1j * np.pi / 4)]])
 
     exp_theta = np.exp(1j * phi)
     targetx = options["target"]
@@ -36,13 +36,13 @@ def QSPGrad_sym(phi, delta, options):
         temp_save_2 = np.zeros((2, 2, d), dtype=np.complex128)
 
         temp_save_1[:, :, 0] = np.eye(2)
-        # Remove the ,0 s here ?
-        temp_save_2[:, :, 0] = np.array([[exp_theta[d - 1, 0], 0],
-                                        [0, np.conj(exp_theta[d - 1, 0])]]) @ gate
+        # Remove the exp_theta[d-1 , ""0""]" s here ?
+        temp_save_2[:, :, 0] = np.array([[exp_theta[d - 1], 0],
+                                        [0, np.conj(exp_theta[d - 1])]]) @ gate
         
         for j in range(1, d):
             temp_save_1[:, :, j] = temp_save_1[:, :, j - 1] * np.array([exp_theta[j-1], np.conj(exp_theta[j-1])]) @ Wx
-            temp_save_2[:, :, j] = np.array([exp_theta[d - j], np.conj(exp_theta[d - j - 1])]) * Wx @ temp_save_2[:, :, j-1]
+            temp_save_2[:, :, j] = np.array([exp_theta[d - j - 1], np.conj(exp_theta[d - j - 1])]) * Wx @ temp_save_2[:, :, j-1]
         
         if parity == 1:
             qsp_mat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx @ temp_save_2[:, :, d - 1]
@@ -57,7 +57,7 @@ def QSPGrad_sym(phi, delta, options):
 
             obj[i] = 0.5 * (np.real(qsp_mat[0, 0]) - targetx(x)) ** 2
         else:
-            qsp_mat = np.transpose(temp_save_2[:, :, d-2] @ Wx @ temp_save_2[:, :, d-1])
+            qsp_mat = np.transpose(temp_save_2[:, :, d-2]) @ Wx @ temp_save_2[:, :, d-1]
             gap = np.real(qsp_mat[0, 0] - targetx(x))
             leftmat = np.transpose(temp_save_2[:, :, d-2]) @ Wx
             for j in range(d):

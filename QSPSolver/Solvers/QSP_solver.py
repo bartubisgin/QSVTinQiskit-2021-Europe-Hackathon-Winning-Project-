@@ -57,8 +57,7 @@ def QSP_Solver(coeff, parity, options: dict) -> (object, object):
 
     start_time = time.time()
     # (tot_len, 1) or (tot_len, ) ?
-    [phi, obj_value, out] = QSP_LBFGS(
-        obj, grad, delta, np.zeros((tot_len, 1)), options)
+    [phi, obj_value, out] = QSP_LBFGS(obj, grad, delta, np.zeros((tot_len, )), options)
     phi[-1] += np.pi/4
 
     # The : indexes are 99# problematic, not sure how to convert them yet
@@ -67,7 +66,6 @@ def QSP_Solver(coeff, parity, options: dict) -> (object, object):
         phi_proc = np.zeros((2 * len(phi) - 1, 1))
         phi_proc[:len(phi) - 1] = phi[1:][::-1]
         phi_proc[len(phi):] = phi
-
     else:
         phi_proc = np.zeros((2 * len(phi, 1)))
         phi_proc[:len(phi)] = phi[::-1]

@@ -24,6 +24,8 @@ def QSPGetUnit_sym(phi, x, parity):
     
     exp_phi = np.exp(1j * phi)
 
+    # Caused a problem here ?
+    # sqrt(1-x^2) becomes a problem here because x = 0.99999 instead of 1
     if parity == 1:
         result = [[exp_phi[0], 0], 
                   [0, np.conj(exp_phi[0])]]
