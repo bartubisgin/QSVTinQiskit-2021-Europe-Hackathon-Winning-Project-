@@ -60,9 +60,9 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 
 - [A. Gilyén, Y. Su, G. H. Low, and N. Wiebe. Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics. In Proceedings of the 51st Annual ACM SIGACT Symposium on Theory of Computing, pages 193–204, 2019](https://dl.acm.org/doi/10.1145/3313276.3316366)
 
-- https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s
+- [Isaac Chuang: Grand Unification of Quantum Algorithms](https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s)
 
-- [Yoder, Low, Chuang, Fixed-point quantum search with an optimal number of querie](https://arxiv.org/pdf/1409.3305.pdf)
+- [T. J. Yoder, G. H. Low, I. L. Chuang, Fixed-point quantum search with an optimal number of querie](https://arxiv.org/pdf/1409.3305.pdf)
 
 - [Y. Dong, X. Meng, K. B. Whaley, and L. Lin. Efficient Phase Factor Evaluation in Quantum Signal Processing. arXiv: 2002.11649](https://arxiv.org/abs/2002.11649)
 
