@@ -116,7 +116,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
             if (iter_ == 1 or np.mod(iter_ - itprint, itprint * 10) == 0):
                 print("str_head")
         
-        if iter_ > maxiter:
+        if iter_ >= maxiter:
             print("Max iteration reached")
             break
 
