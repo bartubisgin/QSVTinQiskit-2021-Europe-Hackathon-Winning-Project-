@@ -62,7 +62,7 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 
 - [Isaac Chuang: Grand Unification of Quantum Algorithms](https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s)
 
-- [T. J. Yoder, G. H. Low, I. L. Chuang, Fixed-point quantum search with an optimal number of querie](https://arxiv.org/pdf/1409.3305.pdf)
+- [T. J. Yoder, G. H. Low, I. L. Chuang, Fixed-point quantum search with an optimal number of queries. 10.1103/PhysRevLett.113.210501](https://arxiv.org/pdf/1409.3305.pdf)
 
 - [Y. Dong, X. Meng, K. B. Whaley, and L. Lin. Efficient Phase Factor Evaluation in Quantum Signal Processing. arXiv: 2002.11649](https://arxiv.org/abs/2002.11649)
 
