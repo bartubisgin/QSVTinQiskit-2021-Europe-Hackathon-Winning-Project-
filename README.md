@@ -38,7 +38,7 @@ Notice how this framework is independent of the type of algorithm we want to use
 
 # Algorithms That Are Confirmed to be QSVT-expressable
 
-Quantum Simulation
+Quantum Search
 
 Hamiltonian Simulation and Quantum Walks
 
