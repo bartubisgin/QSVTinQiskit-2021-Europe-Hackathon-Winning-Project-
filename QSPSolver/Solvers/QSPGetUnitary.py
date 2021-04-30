@@ -11,16 +11,16 @@ import numpy as np
 #
 
 def QSPGetUnitary(phase, x):
-    Wx = [[x, 1j * np.sqrt(1 - x**2)],
-          [1j * np.sqrt(1 - x ** 2), x]]
+    Wx = np.array([[x, 1j * np.sqrt(1 - x**2)],
+          [1j * np.sqrt(1 - x ** 2), x]])
     
     exp_phi = np.exp(1j * phase)
-    result = [[exp_phi[0], 0],
-           [0, exp_phi[0].conj]]
+    result = np.array([[exp_phi[0], 0],
+           [0, exp_phi[0].conj()]])
 
     for k in range(1, exp_phi.size):
-        temp = [[exp_phi[k], 0], 
-                [0, exp_phi[k].conj]]
-        result @= Wx @ temp
+        temp = np.array([[exp_phi[k], 0], 
+                [0, exp_phi[k].conj()]])
+        result = result @ Wx @ temp
     
     return np.real(result[0, 0])

@@ -44,6 +44,10 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
     if "itprint" not in options:
         options["itprint"] = 1
 
+    # stra1 = ['%4s','%13s','%10s','%10s','\n'];
+    str_head = ['iter','obj','stepsize','des_ratio']
+    str_num = '%4d %+5.4E %+3.2E %+3.2E \n'
+
     out = dict()
 
     # Copy values to parameters
@@ -115,8 +119,9 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         GRAD = GRAD_new
         if pri and np.mod(iter_, itprint) == 0:
             if (iter_ == 1 or np.mod(iter_ - itprint, itprint * 10) == 0):
-                print("str_head")
-        
+                print(str_head)
+            print(str_num % (iter_, obj_max, step, ad/(exp_des * step)))
+
         if iter_ >= maxiter:
             print("Max iteration reached")
             break

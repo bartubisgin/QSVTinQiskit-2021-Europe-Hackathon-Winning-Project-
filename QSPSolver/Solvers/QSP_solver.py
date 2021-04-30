@@ -55,13 +55,13 @@ def QSP_Solver(coeff, parity, options: dict) -> (object, object):
     # The : indexes are 99# problematic, not sure how to convert them yet
 
     if parity == 0:
-        phi_proc = np.zeros((2 * len(phi) - 1, 1))
+        phi_proc = np.zeros((2 * len(phi) - 1, ))
         phi_proc[:len(phi) - 1] = phi[1:][::-1]
-        phi_proc[len(phi):] = phi
+        phi_proc[len(phi) - 1:] = phi
     else:
-        phi_proc = np.zeros((2 * len(phi, 1)))
+        phi_proc = np.zeros((2 * len(phi) ))
         phi_proc[:len(phi)] = phi[::-1]
-        phi_proc[len(phi) + 1:] = phi
+        phi_proc[len(phi):] = phi
 
     lapsed_time = time.time() - start_time
     out["time"] = lapsed_time
