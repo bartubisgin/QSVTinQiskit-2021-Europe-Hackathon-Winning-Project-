@@ -73,12 +73,13 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
 
     while(True):
         iter_ += 1
-        theta_d = GRAD
+        theta_d = GRAD.copy()
         alpha = np.zeros((mem_size, 1))
         for i in range(mem_size):
             subsc = np.mod(mem_now - i, lmem)
             alpha[i] = mem_dot[i] * (mem_obj[subsc, :] @ theta_d)
             theta_d -= alpha[i] * np.conj(mem_grad[subsc, :])
+            # print(i, iter_)
 
         theta_d *= 0.5
         if (options["parity"] == 0):
@@ -107,7 +108,7 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
         [grad_s, _] = grad(phi, delta, options)
         GRAD_new = np.mean(grad_s, axis=0)
         mem_size = np.min([lmem, mem_size + 1])
-        mem_now = np.mod(mem_now, lmem) + 1
+        mem_now = np.mod(mem_now, lmem)
         mem_grad[mem_now, :] = GRAD_new - GRAD
         mem_obj[mem_now, :] = - step * theta_d
         mem_dot[mem_now] = 1/(mem_grad[mem_now, :] @ np.conj(mem_obj[mem_now, :]))

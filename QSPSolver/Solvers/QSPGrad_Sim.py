@@ -42,7 +42,8 @@ def QSPGrad_sym(phi, delta, options):
         
         for j in range(1, d):
             temp_save_1[:, :, j] = temp_save_1[:, :, j - 1] * np.array([exp_theta[j-1], np.conj(exp_theta[j-1])]) @ Wx
-            temp_save_2[:, :, j] = np.array([exp_theta[d - j - 1], np.conj(exp_theta[d - j - 1])]) * Wx @ temp_save_2[:, :, j-1]
+            ## Here
+            temp_save_2[:, :, j] = np.array([[exp_theta[d - j - 1]], [np.conj(exp_theta[d - j - 1])]]) * Wx @ temp_save_2[:, :, j-1]
         
         if parity == 1:
             qsp_mat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx @ temp_save_2[:, :, d - 1]
