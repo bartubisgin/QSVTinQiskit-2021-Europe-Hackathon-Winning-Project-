@@ -38,17 +38,17 @@ def QSPGrad_sym(phi, delta, options):
         temp_save_1[:, :, 0] = np.eye(2)
         # Remove the exp_theta[d-1 , ""0""]" s here ?
         temp_save_2[:, :, 0] = np.array([[exp_theta[d - 1], 0],
-                                        [0, np.conj(exp_theta[d - 1])]]) @ gate
+                                        [0, exp_theta[d - 1].conj()]]) @ gate
         
         for j in range(1, d):
-            temp_save_1[:, :, j] = temp_save_1[:, :, j - 1] * np.array([exp_theta[j-1], np.conj(exp_theta[j-1])]) @ Wx
+            temp_save_1[:, :, j] = temp_save_1[:, :, j - 1] * np.array([exp_theta[j-1], exp_theta[j-1].conj()]) @ Wx
             ## Here
-            temp_save_2[:, :, j] = np.array([[exp_theta[d - j - 1]], [np.conj(exp_theta[d - j - 1])]]) * Wx @ temp_save_2[:, :, j-1]
+            temp_save_2[:, :, j] = np.array([[exp_theta[d - j - 1]], [exp_theta[d - j - 1].conj()]]) * Wx @ temp_save_2[:, :, j-1]
         
         if parity == 1:
-            qsp_mat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx @ temp_save_2[:, :, d - 1]
+            qsp_mat = temp_save_2[:, :, d - 1].T @ Wx @ temp_save_2[:, :, d - 1]
             gap = np.real(qsp_mat[0, 0]) - targetx(x)
-            leftmat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx
+            leftmat = temp_save_2[:, :, d - 1].T @ Wx
 
             for j in range(d):
                 grad_temp = leftmat @ temp_save_1[:, :, j] * np.array([1j, -1j]) @ temp_save_2[:, :, d - j - 1]
@@ -56,9 +56,9 @@ def QSPGrad_sym(phi, delta, options):
             
             obj[i] = 0.5 * (np.real(qsp_mat[0, 0]) - targetx(x)) ** 2
         else:
-            qsp_mat = np.transpose(temp_save_2[:, :, d-2]) @ Wx @ temp_save_2[:, :, d-1]
+            qsp_mat = temp_save_2[:, :, d-2].T @ Wx @ temp_save_2[:, :, d-1]
             gap = np.real(qsp_mat[0, 0] - targetx(x))
-            leftmat = np.transpose(temp_save_2[:, :, d-2]) @ Wx
+            leftmat = temp_save_2[:, :, d-2].T @ Wx
             for j in range(d):
                 grad_temp = leftmat @ temp_save_1[:, :, j] * np.array([1j, -1j]) @ temp_save_2[:, :, d - j - 1]
                 # might be a bit shaky

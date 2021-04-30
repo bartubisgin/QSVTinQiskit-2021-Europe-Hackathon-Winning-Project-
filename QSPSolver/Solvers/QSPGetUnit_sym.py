@@ -28,10 +28,10 @@ def QSPGetUnit_sym(phi, x, parity):
     # sqrt(1-x^2) becomes a problem here because x = 0.99999 instead of 1
     if parity == 1:
         result = np.array([[exp_phi[0], 0], 
-                  [0, np.conj(exp_phi[0])]])
+                            [0, exp_phi[0].conj()]])
         for k in range(1, len(exp_phi)):
             result = result @ Wx @ np.array([[exp_phi[k], 0],
-                            [0, np.conj(exp_phi[k])]])
+                                            [0, exp_phi[k].conj()]])
         result = result @ gate
         qspmat = result.T @ Wx @ result
     
@@ -40,9 +40,9 @@ def QSPGetUnit_sym(phi, x, parity):
         for k in range(1, len(exp_phi)):
             # @= is not yet supported (why?)
             result = result @ Wx * np.array([[exp_phi[k], 0],
-                                            [0, np.conj(exp_phi[k])]])
+                                            [0, exp_phi[k].conj()]])
         result = result @ gate
         qspmat = result.T @ np.array([[exp_phi[0], 0],
-                          [0, np.conj(exp_phi[1])]]) @ result
+                          [0, exp_phi[1].conj()]]) @ result
     return qspmat
         

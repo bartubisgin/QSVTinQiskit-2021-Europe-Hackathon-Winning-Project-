@@ -49,7 +49,7 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
 
         for j in range(d):
             thetawx[:, :, j]  = np.array([[exp_theta[j], 0], 
-                                            [0, np.conj(exp_theta[j])]]) @ Wx
+                                            [0, exp_theta[j].conj()]]) @ Wx
 
         for j in range(d):
             for k in range(j+1, d+1):
@@ -57,11 +57,11 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
                     temp_save[:, :, j, k] = temp_save[:, :, j, k - 1] @ thetawx[:, :, k - 1]
                 else:
                     temp_save[:, :, j, k] = temp_save[:, :, j, k - 1] @ np.array([[exp_theta[d - 1], 0],
-                                                                                [0, np.conj(exp_theta[d - 1])]]) @ gate
+                                                                                [0, exp_theta[d - 1].conj()]]) @ gate
         if parity == 1:
-            qspmat = np.transpose(temp_save[:, :, 0, d]) @ Wx @ temp_save[:, :, 0, d]
+            qspmat = temp_save[:, :, 0, d].T @ Wx @ temp_save[:, :, 0, d]
             gap = np.real(qspmat[0, 0]) - targetx(x)
-            leftmat = np.transpose(temp_save[:, :, 0, d]) @ Wx
+            leftmat = temp_save[:, :, 0, d].T @ Wx
             for j in range(d + 1):
                 temp_lef_save[:, :, j] = leftmat @ temp_save[:, :, 0, j]
             
@@ -81,15 +81,15 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
                 for k in range(j, d):
                     hesst = temp_lef_save[:, :, j] * np.array([1, -1]) @ temp_save[:, :, j, k] * np.array([-1, 1]) @ temp_save[:, :, k, d]
                     hesst_temp = 2 * np.real(hesst[0, 0]) * gap
-                    hesst_2 = np.transpose(grad_temp[:, :, j] @ grad_Wtemp[:, :, k])
+                    hesst_2 = (grad_temp[:, :, j] @ grad_Wtemp[:, :, k]).T
                     hess_temp_2 = 2 * np.real(hesst_2[0, 0]) * gap
                     hess[j, k, i] = np.real(grad_lef_temp[0, 0, j]) * np.real(grad_lef_temp[0, 0, k]) + hesst_temp + hess_temp_2
                     hess[k, j, i] = hess[j, k, i]
             obj[i] = 0.5 * (np.real(qspmat[0, 0,]) - targetx(x)) ** 2
         else:
-            qspmat = np.transpose(temp_save[:, :, 1, d]) @ Wx @ temp_save[:, :, 0, d]
+            qspmat = temp_save[:, :, 1, d].T @ Wx @ temp_save[:, :, 0, d]
             gap = np.real(qspmat[0, 0] - targetx(x))
-            leftmat = np.transpose(temp_save[:, : 1, d]) @ Wx
+            leftmat = temp_save[:, : 1, d].T @ Wx
             for j in range(d+1):
                 temp_lef_save[:, :, j] = leftmat @ temp_save[:, :, 0, j]
             
@@ -117,7 +117,7 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
                 if k == 0:
                     hesst_2 = np.zeros((2,2))
                 else:
-                    hesst_2 = np.transpose(temp_save[:, :, 0, d] @ temp_save @ Wx @ grad_temp_2[:, :, k])
+                    hesst_2 = (temp_save[:, :, 0, d] @ temp_save @ Wx @ grad_temp_2[:, :, k]).T
                 
                 hesst_temp_2 = np.real(hesst[0, 0]) @ gap
                 hess[0, k, i] = np.real(grad_lef_temp[0, 0, 0]) @ np.real(grad_lef_temp[0, 0, k]) + hesst_temp + hesst_temp_2
@@ -127,7 +127,7 @@ def QSPHess_sym(phi, delta, options) -> (object, object, object):
                 for k in range(j, d):
                     hesst = temp_lef_save[:, :, j] * np.array([1, -1]) @ temp_save[:, :, j, k] * np.array([-1, 1]) @ temp_save[:, :, k, d]
                     hesst_temp = 2 * np.real(hesst[0, 0]) @ gap
-                    hesst2 = np.transpose(grad_temp_2[:, :, j]) @ grad_Wtemp[:, :, k]
+                    hesst2 = grad_temp_2[:, :, j].T @ grad_Wtemp[:, :, k]
                     hesst_temp_2 = 2 * np.real(hesst2[0, 0]) @ gap
                     hess[j, k, i] = np.real(grad_lef_temp[0, 0, j]) @ np.real(grad_lef_temp[0, 0, k]) + hesst_temp + hesst_temp_2
                     hess[k, j, i] = hess[j, k, i]

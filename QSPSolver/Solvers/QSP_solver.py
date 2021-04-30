@@ -41,7 +41,7 @@ def QSP_Solver(coeff, parity, options: dict) -> (object, object):
 
     tot_len = len(coeff)
     # pi_n = np.array([np.pi / 2 / (2*tot_len) for _ in range(tot_len)])
-    delta = np.conj(np.cos(np.arange(1, 2*tot_len, 2) * np.pi/2/(2*tot_len)))
+    delta = np.cos(np.arange(1, 2*tot_len, 2) * np.pi/2/(2*tot_len)).conj()
     options["target"] = lambda x: ChebyCoef2Func(x, coeff, parity, True)
     options["parity"] = parity
     obj = QSPObj_sym

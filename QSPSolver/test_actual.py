@@ -21,7 +21,7 @@ criteria = 1e-12
 plot_phase = True
 
 options["criteria"] = criteria
-options["maxiter"] = 100
+options["maxiter"] = 10
 max_order = np.ceil(1.4*tau + np.log(1e14))
 if np.mod(max_order, 2) == 1:
     max_order -= 1
