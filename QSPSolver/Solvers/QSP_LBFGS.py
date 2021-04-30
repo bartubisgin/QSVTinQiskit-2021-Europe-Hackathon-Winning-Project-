@@ -89,8 +89,8 @@ def QSP_LBFGS(obj, grad, delta, phi, options) -> (object, object, object):
                 beta = mem_dot[subsc] * (mem_grad[subsc, :] @ theta_d)
                 theta_d += (alpha[mem_size - i - 1] - beta) * np.conj(mem_obj[subsc, :])
             
-            step = 1
-            exp_des = np.conj(GRAD) @ theta_d
+        step = 1
+        exp_des = np.conj(GRAD) @ theta_d
         
         while(True):
             theta_new = phi - step * theta_d

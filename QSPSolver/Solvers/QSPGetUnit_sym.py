@@ -33,7 +33,7 @@ def QSPGetUnit_sym(phi, x, parity):
             result = result @ Wx @ np.array([[exp_phi[k], 0],
                             [0, np.conj(exp_phi[k])]])
         result = result @ gate
-        qspmat = result.T @ Wk @ result
+        qspmat = result.T @ Wx @ result
     
     else:
         result = np.eye(2)
