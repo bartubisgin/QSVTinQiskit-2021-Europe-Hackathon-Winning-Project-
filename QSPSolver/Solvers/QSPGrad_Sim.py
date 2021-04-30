@@ -47,14 +47,12 @@ def QSPGrad_sym(phi, delta, options):
         if parity == 1:
             qsp_mat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx @ temp_save_2[:, :, d - 1]
             gap = np.real(qsp_mat[0, 0]) - targetx(x)
-            leftmat = np.transpose(temp_save_2[:, :, d - 2]) @ Wx
+            leftmat = np.transpose(temp_save_2[:, :, d - 1]) @ Wx
 
             for j in range(d):
                 grad_temp = leftmat @ temp_save_1[:, :, j] * np.array([1j, -1j]) @ temp_save_2[:, :, d - j - 1]
                 grad[i][j] = 2 * np.real(grad_temp[0, 0]) * gap
             
-            grad[i][0] /= 2
-
             obj[i] = 0.5 * (np.real(qsp_mat[0, 0]) - targetx(x)) ** 2
         else:
             qsp_mat = np.transpose(temp_save_2[:, :, d-2]) @ Wx @ temp_save_2[:, :, d-1]
