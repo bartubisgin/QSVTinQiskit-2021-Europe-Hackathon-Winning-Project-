@@ -8,7 +8,7 @@ One of the most important challenges in the broad field of Quantum Information i
 
 QSVT also hints at novel algorithms via. the tune-able parameters, that are the Quantum Signal Processing phases. As each different set of phases corresponds to a different transformation, exploring this space is invaluable.
 
-In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
+In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful library dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
 
 # General Overview of How QSVT works
 
