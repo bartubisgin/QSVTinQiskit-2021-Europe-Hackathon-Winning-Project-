@@ -38,15 +38,15 @@ Notice how this framework is independent of the type of algorithm we want to use
 
 # Algorithms That Are Confirmed to be QSVT-expressable
 
--Quantum Search
+* Quantum Search
 
--Hamiltonian Simulation and Quantum Walks
+* Hamiltonian Simulation and Quantum Walks
 
--Something similar to 'Shor's Algorithm'
+* Something similar to 'Shor's Algorithm'
 
--Matrix Inversion / HHL (for solving linear systems of equations)
+* Matrix Inversion / HHL (for solving linear systems of equations)
 
--Several QML applications
+* Several QML applications
 
 # Short-term Goals
 
