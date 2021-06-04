@@ -1,4 +1,4 @@
-# Quantum Singular Value Transformation (QSVT) in Qiskit (2021 Qiskit Europe Hackathon)
+# <img  src="resources/QSVT.JPG" width=50> Quantum Singular Value Transformation (QSVT) in Qiskit (2021 Qiskit Europe Hackathon)
 
 Quantum Singular Value Transformation (QSVT) is a relatively new and promising framework for gate-based quantum computation, which allows for efficientcircuit representations of a large class of polynomial transformations, including non-unitary operations. This significantly expands the potential range of NISQ-era applications and quantum algorithms in general. QSVT also serves as a unification scheme for many quantum algorithms by showing that they can all be expressed in terms of the same circuit structure. The simple universal circuit structure that realizes the polynomial transformations generally uses only a constant number of ancilla qubits, regardless of the size of the input. Given the previous works on Quantum Signal Processing (QSP), it also has the potential to result in novel algorithms
 
@@ -16,6 +16,8 @@ In current form, the repository contains QSVT-implemented Search utilizing Fixed
 
 All the details about QSVT-search can be found in the documentation. We have tried our best to prepare a very detailed and informative documentation to make all this much more intuitive. We hope it helps!
 
+![](resources/Circuit.jpg)
+
 # Algorithms That Are Confirmed to be QSVT-expressable
 
 * Quantum Search
@@ -26,8 +28,7 @@ All the details about QSVT-search can be found in the documentation. We have tri
 
 # Short-term Goals (ACHIEVED)
 
-* Implement Quantu Search with QSVT in Qiskit. QSVT-search utilized the Fixed-point Amplitude Amplification and uses the whole Bloch sphere for answers instead of the mere 2D plane by original Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. 
-* Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
+Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA uses the whole Bloch sphere for answers instead of the mere 2D plane by Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
 
 # Long-term Goals
 
