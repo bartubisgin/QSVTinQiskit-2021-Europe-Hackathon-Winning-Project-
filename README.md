@@ -16,7 +16,7 @@ In current form, the repository contains QSVT-implemented Search utilizing Fixed
 
 * Quantum Search
 * Hamiltonian Simulation and Quantum Walks
-* Something similar to 'Shor's Algorithm'
+* Something similar to 'Shor's Algorithm' (Kitaev's Factoring Algorithm)
 * Matrix Inversion / HHL (for solving linear systems of equations)
 * Several QML applications
 
