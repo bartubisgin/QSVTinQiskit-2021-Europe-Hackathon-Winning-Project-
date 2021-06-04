@@ -1,15 +1,11 @@
+#Quantum Singular Value Transformation (QSVT) in Qiskit (2021 Qiskit Europe Hackathon)
+QSVT is a relatively new framework that allows one to apply arbitrary polynomial transformations to the singular values of a block-encoded matrix, a method first coherently introduced by Gilyen et. al in a 2018 paper. This work is subsequent to work on Quantum Signal Processing. About a year later, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and has clearly shown how QSVT serves as a unification scheme for many quantum algorithms. Recently, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
 
-# <img src="resources/QSVT.JPG" width = 50> QSVT in Qiskit 
-Quantum algorithms re-imagined as the iteration of a single 'simple' circuit through Quantum Singular Value Transformation that can implement vast class of non-unitaries, implemented in Qiskit.
+One of the most important challenges in the broad field of Quantum Information is implementing non-unitary operations and finding useful NISQ-era applications that offer some valuable speed-up or make otherwise intractable problems solvable. The QSVT effort is an emerging and potentially-groundbreaking development towards these NISQ-applicability as it also allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
 
-# Grand Unification and Efficient Implementation of Non-Unitaries
-Quantum Singular Value Transformation is a promising new framework that allows one to apply an arbitrary polynomial transformation (bound by some constraints) to the singular values of a block-encoded unitary transformation, a method first coherently introduced by Gilyen et. al in a 2018 paper. This work is subsequent to work on Quantum Signal Processing. Later, about 4 months ago, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and how QSVT serves as a unification schemes for many quantum algorithms as something more fundamental. Even more recently, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
+QSVT also hints at novel algorithms via. the so-called Quantum Signal Processing phases. Each different set of phases corresponds to a different transformation. Hence, exploring this space is invaluable.
 
-One of the most important challenges in the broad field of Quantum Information is implementing non-unitary operations and finding useful NISQ-era applications that offer some valuable speed-up or are simply intractable. The QSVT effort is an emerging and potentially-impactful development towards these NISQ-applicability as it allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
-
-QSVT also hints at novel algorithms via. the tune-able parameters, that are the Quantum Signal Processing phases. As each different set of phases corresponds to a different transformation, exploring this space is invaluable.
-
-In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful library dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
+In this project, we aim to create a QSVT mopdule for Qiskit and develop a useful library dedicated to the general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
 
 # General Overview of How QSVT works
 
@@ -21,19 +17,13 @@ Say you have an object (operator/scalar value/matrix-representation etc.) of int
 
 3-Find the Chebyshev expansion of this function, and store the coefficients (this can be done via. FFT or Remez-Exchange algorithm)
 
-4-Using these coefficients, solve for the Quantum Signal Processing phases.
+4-Using these coefficients, solve for the Quantum Signal Processing phases (can be efficiently done by the QSP_solver by Dong et al, which we have translated from Matlab to Python for use in Qiskit).
 
-5-Build a simple circuit that uses a fixed number of ancilla qubits, and just has the Unitary, a rotation around the Z-axis with the found phases, and an ancilla Controlled-projector as elements.
+5-Build a simple circuit that uses a fixed number of ancilla qubits, the Unitary, rotations around the Z-axis with the found phases, and an 'projector-controlled NOTs' as elements.
 
-6-Build another simple circuit with the same elements, just a little tweaking. Take hermitian conjugate of the Unitary and the projector (ie. due to its Unitary nature, its inverse).
+6-Obtain the unitary embedding of the arbitrary transformation you desired.
 
-7-Add these circuits end to end as many times needed with different values for the found phases (so add the circuit block to the end with something similar of a for statement with different phase values).
-
-![](resources/Circuit.jpg)
-
-8-Obtain the unitary embedding of the arbitrary transformation you desired.
-
-9-Extract results!
+7-Extract results!
 
 For example, given a Hamiltonian, and given that you can block-encode it properly in the first step; you can EXACTLY extract cos(Ht)-isin(Ht) to build your time-evolution operator exp(-iHt) EXACTLY, without having to deal with any approximations! THIS IS AMAZING!
 
@@ -62,7 +52,7 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 # Team
 | Bartu Bisgin  | Jiri Guth Jarkovsky | Martin Mauser | Nagme Oruz | Erfan Abedi | 
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| (empty) | (empty) | (empty) | (empty) | (empty) |
+| (Circuit Design / Algorithm) | (Circuit Design / Algorithm) | (Testing) | (Testing) | (Software Development) |
 
 # References
 
