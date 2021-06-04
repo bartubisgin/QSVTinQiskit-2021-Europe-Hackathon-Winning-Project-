@@ -8,38 +8,16 @@ QSVT also hints at novel algorithms via. the so-called Quantum Signal Processing
 
 In this project, we aim to create a QSVT mopdule for Qiskit and develop a useful library dedicated to the general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
 
-# General Overview of How QSVT works
+# Quantum Search with QSVT
 
-Say you have an object (operator/scalar value/matrix-representation etc.) of interest in your algorithm that you want to apply a particular transformation to;
-
-1-Block encode this object of interest into the upper-left corner of a a well-behaving Unitary (ex. block encode the Hamiltonian (non-unitary) into a Unitary)
-
-2-Figure out what transformation you want to apply to this object, and what function corresponds to this transformation (ex. we want cos(Ht) and sin(Ht) for simulation, so the functions of interest are cos(x) and sin(x)). This function needs to satisfy some constraints, most important ones being, its absolute value should be bounded by 1 in [-1,1] and should be smooth.
-
-3-Find the Chebyshev expansion of this function, and store the coefficients (this can be done via. FFT or Remez-Exchange algorithm)
-
-4-Using these coefficients, solve for the Quantum Signal Processing phases (can be efficiently done by the QSP_solver by Dong et al, which we have translated from Matlab to Python for use in Qiskit).
-
-5-Build a simple circuit that uses a fixed number of ancilla qubits, the Unitary, rotations around the Z-axis with the found phases, and an 'projector-controlled NOTs' as elements.
-
-6-Obtain the unitary embedding of the arbitrary transformation you desired.
-
-7-Extract results!
-
-For example, given a Hamiltonian, and given that you can block-encode it properly in the first step; you can EXACTLY extract cos(Ht)-isin(Ht) to build your time-evolution operator exp(-iHt) EXACTLY, without having to deal with any approximations! THIS IS AMAZING!
-
-Notice how this framework is independent of the type of algorithm we want to use! This is remarkable for NISQ-era devices because now we don't need to construct different types of sub-routines for all kinds of different algorithms. We can simply create this circuit, and given that we can properly block-encode our desired operator and that we can obtain the phases by some routine, we can implement different algorithms from across the board with the same circuit architecture! It should be noted that the depth of the circuit depends on the degree of the polynomial expansion, however, the circuit itself being simple, somehow compensates for this. Further work is being done on this topic.
+In current form, the repository contains QSVT-implemented Search utilizing Fixed-point Amplitude Amplification. This search works fundamentally different from the original Grover's Search. It transforms the value of the inner product of the initial and the target states from whatever value it is, to the value of 1, meaning complete overlap! The qsvt_search function can find any marked state up to 9 qubit space very efficiently as of now, and can also demonstrate arbitrary transformations.
 
 # Algorithms That Are Confirmed to be QSVT-expressable
 
 * Quantum Search
-
 * Hamiltonian Simulation and Quantum Walks
-
 * Something similar to 'Shor's Algorithm'
-
 * Matrix Inversion / HHL (for solving linear systems of equations)
-
 * Several QML applications
 
 # Short-term Goals (ACHIEVED)
