@@ -33,7 +33,7 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 # Team
 | Bartu Bisgin  | Jiri Guth Jarkovsky | Martin Mauser | Nagme Oruz | Erfan Abedi | 
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| (Circuit Design / Algorithm) | (Circuit Design / Algorithm) | (Testing) | (Testing) | (Software Development) |
+
 
 # References
 
