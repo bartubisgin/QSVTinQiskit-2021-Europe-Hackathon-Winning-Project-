@@ -35,7 +35,7 @@ Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA u
 We want to keep implementing different algorithms in the QSVT framework and add them to this initial module to create a rich QSVT library for Qiskit, making QSVT more accesible to the community, bridging the gap between cutting-edge research and developers. We hope to contribute to research on QSVT and the development of novel algorithms through this work.
 
 # Team
-| Bartu Bisgin  | Jiri Guth Jarkovsky | Martin Mauser | Nagme Oruz | Erfan Abedi | 
+| [Bartu Bisgin](https://github.com/bartubisgin)  | [Jiri Guth Jarkovsky](https://github.com/JiriGuthJarkovsky) | [Martin Mauser](https://github.com/MFXM) | [Nagme Oruz](https://github.com/uzaynagme) | [Erfan Abedi](https://github.com/theerfan) | 
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 
 
