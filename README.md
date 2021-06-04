@@ -42,7 +42,7 @@ Notice how this framework is independent of the type of algorithm we want to use
 
 * Several QML applications
 
-# Short-term Goals
+# Short-term Goals (ACHIEVED)
 
 Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA uses the whole Bloch sphere for answers instead of the mere 2D plane by Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
 
