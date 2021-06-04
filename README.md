@@ -12,6 +12,8 @@ In this project, we aim to create a QSVT mopdule for Qiskit and develop a useful
 
 In current form, the repository contains QSVT-implemented Search utilizing Fixed-point Amplitude Amplification. This search works fundamentally different from the original Grover's Search. It transforms the value of the inner product of the initial and the target states from whatever value it is, to the value of 1, meaning complete overlap! The qsvt_search function can find any marked state up to 9 qubit space very efficiently as of now, and can also demonstrate arbitrary transformations.
 
+All the details about QSVT-search can be found in the documentation. We have tried our best to prepare a very detailed and informative documentation to make all this much more intuitive. We hope it helps!
+
 # Algorithms That Are Confirmed to be QSVT-expressable
 
 * Quantum Search
