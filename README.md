@@ -67,8 +67,14 @@ We want to keep implementing different algorithms in the QSVT framework and add 
 
 - [Isaac Chuang: Grand Unification of Quantum Algorithms](https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s)
 
+- [Low, G. H., Yoder, T. J. & Chuang, I. L. The methodology of resonant equiangular composite quantum gates. Phys. Rev. X 6, 041067 (2016)](http://arxiv.org/abs/1603.03996)
+
 - [T. J. Yoder, G. H. Low, I. L. Chuang, Fixed-point quantum search with an optimal number of queries. 10.1103/PhysRevLett.113.210501](https://arxiv.org/pdf/1409.3305.pdf)
 
 - [Y. Dong, X. Meng, K. B. Whaley, and L. Lin. Efficient Phase Factor Evaluation in Quantum Signal Processing. arXiv: 2002.11649](https://arxiv.org/abs/2002.11649)
+
+- [Low, G. H. & Chuang, I. L. Optimal Hamiltonian Simulation by Quantum Signal Processing. Phys. Rev. Lett. 118, 010501 (2017)](http://arxiv.org/abs/1606.02685)
+
+- [Harrow, A. W., Hassidim, A. & Lloyd, S. Quantum algorithm for solving linear systems of equations. Phys. Rev. Lett. 103, 150502 (2009)](http://arxiv.org/abs/0811.3171)
 
 - https://github.com/qsppack
