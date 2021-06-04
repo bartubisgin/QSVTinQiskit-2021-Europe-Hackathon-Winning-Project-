@@ -5,7 +5,10 @@ Quantum Singular Value Transformation (QSVT) is a relatively new and promising f
 One of the most important challenges in the broad field of Quantum Information is implementing non-unitary operations and finding useful NISQ-era applications that offer some valuable speed-up or make otherwise intractable problems solvable. The QSVT effort is an emerging and potentially-groundbreaking development towards these NISQ-applicability as it also allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
 
 
-In this project, we aimed to create a QSVT mopdule for Qiskit and develop a useful library dedicated to the general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
+In this project, we aimed to create a QSVT mopdule for Qiskit and develop a useful library dedicated to the general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation. 
+
+With search implemented, we hope that we have begun to bridge the gap between academia and the Qiskit community for QSVT.
+
 
 # Quantum Search with QSVT
 
