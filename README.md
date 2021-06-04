@@ -1,4 +1,5 @@
-#Quantum Singular Value Transformation (QSVT) in Qiskit (2021 Qiskit Europe Hackathon)
+# Quantum Singular Value Transformation (QSVT) in Qiskit (2021 Qiskit Europe Hackathon)
+
 QSVT is a relatively new framework that allows one to apply arbitrary polynomial transformations to the singular values of a block-encoded matrix, a method first coherently introduced by Gilyen et. al in a 2018 paper. This work is subsequent to work on Quantum Signal Processing. About a year later, Prof. Isaac Chuang has given an overview of Gilyen's ideas, and has clearly shown how QSVT serves as a unification scheme for many quantum algorithms. Recently, Seth Lloyd and colleagues published a preprint on 'Hamiltonian Singular Value Transformation and Inverse Block Encoding' for NISQ-era devices.
 
 One of the most important challenges in the broad field of Quantum Information is implementing non-unitary operations and finding useful NISQ-era applications that offer some valuable speed-up or make otherwise intractable problems solvable. The QSVT effort is an emerging and potentially-groundbreaking development towards these NISQ-applicability as it also allows one to fundamentally re-cast any complex circuitry as the iteration of a single, simple circuit structure that can also construct arbitrary non-unitary operations.
