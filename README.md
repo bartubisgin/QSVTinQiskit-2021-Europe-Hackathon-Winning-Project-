@@ -26,7 +26,8 @@ All the details about QSVT-search can be found in the documentation. We have tri
 
 # Short-term Goals (ACHIEVED)
 
-Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA uses the whole Bloch sphere for answers instead of the mere 2D plane by Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
+* Implement Quantu Search with QSVT in Qiskit. QSVT-search utilized the Fixed-point Amplitude Amplification and uses the whole Bloch sphere for answers instead of the mere 2D plane by original Grover's and can be used for efficient search, state preparation and/or as a sub-routine to other algorithms. 
+* Create functions that are readily-callable for FPAA and can be compared to 2 and 3 qubit cases with original Grover's. This requires delicate documentation on inner workings, implementation and efficiency, preparing of which is also a part of short-term goals.
 
 # Long-term Goals
 
