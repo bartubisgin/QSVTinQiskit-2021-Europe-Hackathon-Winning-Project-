@@ -1,4 +1,5 @@
-# QSVT in Qiskit
+
+# <img src="resources/QSVT.JPG" width = 50> QSVT in Qiskit 
 Quantum algorithms re-imagined as the iteration of a single 'simple' circuit through Quantum Singular Value Transformation that can implement vast class of non-unitaries, implemented in Qiskit.
 
 # Grand Unification and Efficient Implementation of Non-Unitaries
@@ -27,6 +28,8 @@ Say you have an object (operator/scalar value/matrix-representation etc.) of int
 6-Build another simple circuit with the same elements, just a little tweaking. Take hermitian conjugate of the Unitary and the projector (ie. due to its Unitary nature, its inverse).
 
 7-Add these circuits end to end as many times needed with different values for the found phases (so add the circuit block to the end with something similar of a for statement with different phase values).
+
+![](resources/Circuit.jpg)
 
 8-Obtain the unitary embedding of the arbitrary transformation you desired.
 
