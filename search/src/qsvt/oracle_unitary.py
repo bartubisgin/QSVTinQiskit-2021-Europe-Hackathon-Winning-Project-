@@ -1,6 +1,7 @@
 #Define Oracle and the reverse-gate for
 #constructing dagger later
 
+from qsvt import *
 
 def U(q): 
     qc = QuantumCircuit(q)
