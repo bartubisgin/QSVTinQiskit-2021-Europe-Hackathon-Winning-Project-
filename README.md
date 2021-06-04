@@ -8,7 +8,7 @@ One of the most important challenges in the broad field of Quantum Information i
 
 QSVT also hints at novel algorithms via. the tune-able parameters, that are the Quantum Signal Processing phases. As each different set of phases corresponds to a different transformation, exploring this space is invaluable.
 
-In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful libarary dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
+In this project, the aim is to apply QSVT hands-on in Qiskit and develop a useful library dedicated to general QSVT framework where different algorithms can be expressed as the manifestation of a single fundamental idea with the corresponding encoding and polynomial transformation.
 
 # General Overview of How QSVT works
 
@@ -38,15 +38,15 @@ Notice how this framework is independent of the type of algorithm we want to use
 
 # Algorithms That Are Confirmed to be QSVT-expressable
 
-Quantum Search
+* Quantum Search
 
-Hamiltonian Simulation and Quantum Walks
+* Hamiltonian Simulation and Quantum Walks
 
-Something similar to 'Shor's Algorithm'
+* Something similar to 'Shor's Algorithm'
 
-Matrix Inversion / HHL (for solving linear systems of equations)
+* Matrix Inversion / HHL (for solving linear systems of equations)
 
-Several QML applications
+* Several QML applications
 
 # Short-term Goals
 
@@ -56,14 +56,25 @@ Implement Fixed-point Amplitude Amplification (FPAA) with QSVT in Qiskit. FPAA u
 
 We want to keep implementing different algorithms in the QSVT framework and add them to this initial module to create a rich QSVT library for Qiskit, making QSVT more accesible to the community, bridging the gap between cutting-edge research and developers. We hope to contribute to research on QSVT and the development of novel algorithms through this work.
 
+# Team
+| Bartu Bisgin  | Jiri Guth Jarkovsky | Martin Mauser | Nagme Oruz | Erfan Abedi | 
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| (empty) | (empty) | (empty) | (empty) | (empty) |
+
 # References
 
 - [A. Gilyén, Y. Su, G. H. Low, and N. Wiebe. Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics. In Proceedings of the 51st Annual ACM SIGACT Symposium on Theory of Computing, pages 193–204, 2019](https://dl.acm.org/doi/10.1145/3313276.3316366)
 
 - [Isaac Chuang: Grand Unification of Quantum Algorithms](https://www.youtube.com/watch?v=GFRojXdrVXI&t=2002s)
 
+- [Low, G. H., Yoder, T. J. & Chuang, I. L. The methodology of resonant equiangular composite quantum gates. Phys. Rev. X 6, 041067 (2016)](http://arxiv.org/abs/1603.03996)
+
 - [T. J. Yoder, G. H. Low, I. L. Chuang, Fixed-point quantum search with an optimal number of queries. 10.1103/PhysRevLett.113.210501](https://arxiv.org/pdf/1409.3305.pdf)
 
 - [Y. Dong, X. Meng, K. B. Whaley, and L. Lin. Efficient Phase Factor Evaluation in Quantum Signal Processing. arXiv: 2002.11649](https://arxiv.org/abs/2002.11649)
+
+- [Low, G. H. & Chuang, I. L. Optimal Hamiltonian Simulation by Quantum Signal Processing. Phys. Rev. Lett. 118, 010501 (2017)](http://arxiv.org/abs/1606.02685)
+
+- [Harrow, A. W., Hassidim, A. & Lloyd, S. Quantum algorithm for solving linear systems of equations. Phys. Rev. Lett. 103, 150502 (2009)](http://arxiv.org/abs/0811.3171)
 
 - https://github.com/qsppack
